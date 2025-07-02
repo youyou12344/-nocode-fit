@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/** 安装 IDE 插件 Tailwind CSS IntelliSense */
+@tailwind base; /** 基础样式 */
+@tailwind components; /** 组件样式 */
+@tailwind utilities; /** 工具样式 */
  
 @layer base {
   :root {

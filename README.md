@@ -1,7 +1,3 @@
-<!--
- * @Date: 2025-07-02 19:27:39
- * @LastEditTime: 2025-07-02 19:49:36
--->
 # 饮食热量计算器
 
 本项目是一个基于 Web 的饮食热量计算器，帮助用户根据个人身体数据和活动水平，科学计算每日所需热量，适用于健身、减脂和健康管理等场景。
@@ -52,14 +48,15 @@ nocode-fit/
 ## 快速开始
 1. 安装依赖
 ```
-npm install
+nvm use v20
+yarn install
 ```
 2. 启动开发服务器
 ```
-npm run dev
+yarn dev
 ```
 
-访问 http://localhost:5173 查看应用。
+访问 http://localhost:8080 查看应用。
 
 <!-- ## 在线预览
 （如有线上部署，可在此处添加访问链接。例如：https://your-demo-link.com）
@@ -87,3 +84,49 @@ A: 计算公式基于常用健康管理标准，仅供参考，具体请结合�
 
 ## License
 MIT -->
+
+
+## 依赖说明
+
+### 前端框架与基础库
+- **react / react-dom**：核心前端库，用于构建用户界面。
+- **react-router-dom**：React 路由库，实现页面跳转和路由管理。
+
+### UI 组件与样式
+- **@radix-ui/react-***：Radix UI 提供的一系列无样式、可访问性的 React 组件（如按钮、对话框、选择器等），方便快速搭建现代 UI。
+- **tailwindcss**：原子化 CSS 框架，极大提升开发效率和样式一致性。
+  - Tailwind CSS 实际上是一个 PostCSS 插件
+  - Vite 负责热更新和打包，PostCSS 负责处理 CSS，Tailwind 负责生成和裁剪样式。
+  - Tailwind 只会把你项目中真正用到的工具类（如 bg-gray-100、p-8 等）生成到最终的 CSS 文件里，没用到的不会生成。
+- **tailwindcss-animate**：为 Tailwind CSS 提供动画支持。
+- **clsx / class-variance-authority**：用于动态拼接 className，简化样式逻辑。
+- **lucide-react**：一套现代化的 React 图标库。
+- **framer-motion**：强大的 React 动画库，提升交互体验。
+
+### 表单与数据处理
+- **react-hook-form**：高性能、易用的表单管理库。
+- **@hookform/resolvers**：为 react-hook-form 提供校验支持（如 zod）。
+- **zod**：声明式数据校验库，常与表单结合使用。
+- **date-fns**：现代 JavaScript 日期工具库，处理日期更方便。
+
+### 网络与数据
+- **axios**：流行的 HTTP 请求库，简化与后端的数据交互。
+- **@tanstack/react-query**：强大的数据获取、缓存和同步库，提升数据管理体验。
+- **@supabase/supabase-js**：Supabase 的 JS 客户端，支持云端数据库和认证（如有用到）。
+
+### 其他常用库
+- **recharts**：基于 React 的图表库，适合数据可视化。
+- **embla-carousel-react**：React 轮播图组件。
+- **cmdk**：命令面板组件，提升交互体验。
+- **html-to-image**：将 HTML 元素导出为图片。
+- **input-otp**：输入验证码的 UI 组件。
+- **sonner**：优雅的消息通知组件。
+- **vaul**：抽屉式弹窗组件。
+
+### 开发与构建工具
+- **vite**：极速前端构建工具，开发体验极佳。
+- **@vitejs/plugin-react**：Vite 的 React 插件。
+- **eslint 及相关插件**：代码规范和质量检查。
+- **postcss / autoprefixer**：CSS 处理和兼容性增强。
+
+> 更多依赖请参考 package.json 文件。
