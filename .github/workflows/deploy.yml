@@ -1,34 +1,76 @@
-name: Deploy to GitHub Pages
+# GitHub Actions 工作流配置文件
+# 用于自动构建和部署 React 应用到 GitHub Pages
+name: 🚀 Deploy to GitHub Pages
 
+# 触发条件：当代码推送到 main 分支或创建针对 main 分支的 PR 时触发
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # 推送到 main 分支时触发
   pull_request:
-    branches: [ main ]
+    branches: [ main ]  # 创建针对 main 分支的 PR 时触发
 
+# 设置 GITHUB_TOKEN 权限
+# 这些权限是 GitHub Pages 部署所必需的
+permissions:
+  contents: read      # 读取仓库内容权限
+  pages: write        # 写入 GitHub Pages 权限
+  id-token: write     # 写入 ID token 权限（用于身份验证）
+
+# 并发控制：确保同一时间只有一个部署任务运行
+# 防止多个部署任务同时执行造成冲突
+concurrency:
+  group: "pages"              # 并发组名称
+  cancel-in-progress: false   # 不取消正在进行的部署
+
+# 定义工作流任务
 jobs:
+  # 构建任务：负责代码检查、依赖安装和项目构建
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    # 在 Ubuntu 最新版本上运行
     
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    # 步骤 1: 检出代码
+    - name: 📥 Checkout
+      uses: actions/checkout@v4  # 使用官方 checkout action 检出代码
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
+    # 步骤 2: 设置 Node.js 环境
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4  # 使用官方 Node.js setup action
       with:
-        node-version: '18'
-        cache: 'yarn'
+        node-version: '18'         # 指定 Node.js 版本为 18
+        cache: 'yarn'              # 启用 yarn 缓存以加速依赖安装
         
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
+    - name: 📦 Install dependencies
+      run: yarn install --frozen-lockfile  # 使用 yarn 安装依赖，--frozen-lockfile 确保版本锁定
       
-    - name: Build
-      run: yarn build
+    # 步骤 4: 构建项目
+    - name: 🔨 Build
+      run: yarn build              # 执行构建命令
+      env:
+        NODE_ENV: production       # 设置生产环境变量
+        GITHUB_ACTIONS: true       # 标识当前在 GitHub Actions 中运行
       
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+    # 步骤 5: 列出构建输出文件（用于调试）
+    - name: 📁 List build output
+      run: ls -la dist/            # 显示 dist 目录内容，确认构建成功
+      
+    # 步骤 6: 上传构建产物
+    - name: 📁 Upload artifact
+      uses: actions/upload-pages-artifact@v3  # 上传构建产物到 GitHub Pages
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist 
+        path: ./dist               # 指定要上传的目录路径
+      
+  # 部署任务：负责将构建产物部署到 GitHub Pages
+  deploy:
+    environment:
+      name: github-pages           # 环境名称
+      url: ${{ steps.deployment.outputs.page_url }}  # 部署后的页面 URL
+    runs-on: ubuntu-latest         # 在 Ubuntu 最新版本上运行
+    needs: build-and-deploy        # 依赖构建任务完成后才执行
+    if: github.ref == 'refs/heads/main'  # 只在 main 分支上执行部署（PR 不部署）
+    
+    steps:
+    # 步骤 1: 部署到 GitHub Pages
+    - name: 🚀 Deploy to GitHub Pages
+      id: deployment               # 步骤 ID，用于输出 URL
+      uses: actions/deploy-pages@v4  # 使用官方 GitHub Pages 部署 action 
