@@ -8,10 +8,11 @@ import react from '@vitejs/plugin-react';
 
 const isProdEnv = process.env.NODE_ENV === 'production';
 const isVercel = process.env.VERCEL === '1';
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 
-// 为 Vercel 部署使用标准配置
-const PUBLIC_PATH = isVercel ? '/' : (isProdEnv ? process.env.PUBLIC_PATH + '/' + process.env.CHAT_VARIABLE : process.env.PUBLIC_PATH);
-const OUT_DIR = isVercel ? 'dist' : (isProdEnv ? 'build/' + process.env.CHAT_VARIABLE : 'build');
+// 为不同部署环境使用标准配置
+const PUBLIC_PATH = isVercel ? '/' : (isGitHubPages ? '/yy12344-fit/' : '/');
+const OUT_DIR = isVercel ? 'dist' : 'dist';
 const PLUGINS = isProdEnv ? [
   react(),
   prodHtmlTransformer(process.env.CHAT_VARIABLE)

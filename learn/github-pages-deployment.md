@@ -194,3 +194,8 @@ https://你的用户名.github.io/仓库名
 - [GitHub Pages 官方文档](https://pages.github.com/)
 - [GitHub Actions 文档](https://docs.github.com/en/actions)
 - [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) 
+
+
+## 常见问题
+
+1. 不需要手动创建 gh-pages 分支！GitHub Actions 会自动创建这个分支。
