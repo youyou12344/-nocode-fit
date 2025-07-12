@@ -6,11 +6,11 @@ Vercel 是一个现代化的静态网站托管平台，特别适合 React、Vue�
 
 ## ✅ 优势
 
-- **完全免费**：个人项目免费使用
-- **自动部署**：连接 GitHub 后，每次 push 自动部署
-- **全球 CDN**：访问速度快
-- **自动 HTTPS**：免费 SSL 证书
-- **零配置**：大部分项目开箱即用
+- 完全免费：个人项目免费使用
+- 自动部署：连接 GitHub 后，每次 push 自动部署
+- 全球 CDN：访问速度快
+- 自动 HTTPS：免费 SSL 证书
+- 零配置：大部分项目开箱即用
 
 ## 📋 部署步骤
 
@@ -45,11 +45,11 @@ Vercel 是一个现代化的静态网站托管平台，特别适合 React、Vue�
 
 ### 3. 部署到 Vercel
 
-1. **访问 [vercel.com](https://vercel.com)**
-2. **用 GitHub 账号登录**
-3. **点击 "New Project"**
-4. **选择你的 GitHub 仓库**
-5. **保持默认设置，点击 "Deploy"**
+1. 访问 [vercel.com](https://vercel.com)
+2. 用 GitHub 账号登录
+3. 点击 "New Project"
+4. 选择你的 GitHub 仓库
+5. 保持默认设置，点击 "Deploy"
 
 ### 4. 配置环境变量（如需要）
 
@@ -62,9 +62,9 @@ Vercel 是一个现代化的静态网站托管平台，特别适合 React、Vue�
 
 ### 构建失败
 
-1. **检查构建命令**：确保 `package.json` 中有正确的 `build` 脚本
-2. **检查输出目录**：确保 `vercel.json` 中的 `outputDirectory` 正确
-3. **查看构建日志**：在 Vercel 控制台查看详细错误信息
+1. 检查构建命令：确保 `package.json` 中有正确的 `build` 脚本
+2. 检查输出目录：确保 `vercel.json` 中的 `outputDirectory` 正确
+3. 查看构建日志：在 Vercel 控制台查看详细错误信息
 
 ### 路由问题
 
@@ -90,9 +90,9 @@ Vercel 是一个现代化的静态网站托管平台，特别适合 React、Vue�
 
 ## 🌐 自定义域名
 
-1. **在 Vercel 控制台添加域名**
-2. **配置 DNS 解析**
-3. **等待 DNS 传播**（通常几分钟到几小时）
+1. 在 Vercel 控制台添加域名
+2. 配置 DNS 解析
+3. 等待 DNS 传播（通常几分钟到几小时）
 
 ## 📱 移动端优化
 
@@ -116,13 +116,7 @@ Vercel 是一个现代化的静态网站托管平台，特别适合 React、Vue�
 
 ## 💡 最佳实践
 
-1. **使用环境变量**：不要硬编码敏感信息
-2. **优化构建**：减少包大小，提高加载速度
-3. **测试部署**：在部署前本地测试构建
-4. **监控性能**：使用 Vercel Analytics 监控网站性能
-
-## 🔗 相关链接
-
-- [Vercel 官方文档](https://vercel.com/docs)
-- [Vercel 部署指南](https://vercel.com/guides)
-- [Vite 部署到 Vercel](https://vitejs.dev/guide/static-deploy.html#vercel) 
+1. 使用环境变量：不要硬编码敏感信息
+2. 优化构建：减少包大小，提高加载速度
+3. 测试部署：在部署前本地测试构建
+4. 监控性能：使用 Vercel Analytics 监控网站性能

@@ -40,7 +40,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-**学习要点：**
+学习要点：
 - React 18 使用 `createRoot` 替代 `ReactDOM.render`
 - 入口文件负责挂载根组件和引入全局样式
 
@@ -71,11 +71,11 @@ const App = () => (
 );
 ```
 
-**学习要点：**
-- **Provider 模式**：使用多个 Provider 包装应用
-- **React Query**：用于数据获取和缓存
-- **React Router**：使用 HashRouter 进行路由管理
-- **动态路由**：通过 `navItems` 数组生成路由
+学习要点：
+- Provider 模式：使用多个 Provider 包装应用
+- React Query：用于数据获取和缓存
+- React Router：使用 HashRouter 进行路由管理
+- 动态路由：通过 `navItems` 数组生成路由
 
 ### 3. 导航配置 (nav-items.jsx)
 
@@ -93,10 +93,10 @@ export const navItems = [
 ];
 ```
 
-**学习要点：**
-- **集中式路由管理**：所有路由配置在一个文件中
-- **图标组件**：使用 Lucide React 图标库
-- **组件导入**：直接导入组件实例
+学习要点：
+- 集中式路由管理：所有路由配置在一个文件中
+- 图标组件：使用 Lucide React 图标库
+- 组件导入：直接导入组件实例
 
 ### 4. 首页组件 (Index.jsx)
 
@@ -121,11 +121,11 @@ const Index = () => {
   };
 ```
 
-**学习要点：**
-- **React Hook Form**：现代化的表单处理库
-- **表单验证**：内置验证规则
-- **实时监听**：`watch` 函数监听字段变化
-- **表单重置**：`reset` 函数清空表单
+学习要点：
+- React Hook Form：现代化的表单处理库
+- 表单验证：内置验证规则
+- 实时监听：`watch` 函数监听字段变化
+- 表单重置：`reset` 函数清空表单
 
 #### 表单字段注册
 
@@ -147,10 +147,10 @@ const Index = () => {
 )}
 ```
 
-**学习要点：**
-- **字段注册**：`register` 函数绑定表单字段
-- **验证规则**：内置 `required`、`min`、`max` 等验证
-- **错误显示**：通过 `errors` 对象显示验证错误
+学习要点：
+- 字段注册：`register` 函数绑定表单字段
+- 验证规则：内置 `required`、`min`、`max` 等验证
+- 错误显示：通过 `errors` 对象显示验证错误
 
 #### Select 组件使用
 
@@ -170,10 +170,10 @@ const Index = () => {
 </Select>
 ```
 
-**学习要点：**
-- **受控组件**：使用 `onValueChange` 和 `setValue`
-- **默认值**：`defaultValue` 设置初始值
-- **组件组合**：Select 由多个子组件组成
+学习要点：
+- 受控组件：使用 `onValueChange` 和 `setValue`
+- 默认值：`defaultValue` 设置初始值
+- 组件组合：Select 由多个子组件组成
 
 #### 实时计算和显示
 
@@ -205,10 +205,10 @@ const results = calculateCalories({
 </div>
 ```
 
-**学习要点：**
-- **实时计算**：使用 `watch` 监听表单变化
-- **默认值处理**：使用 `||` 运算符提供默认值
-- **响应式更新**：计算结果实时更新显示
+学习要点：
+- 实时计算：使用 `watch` 监听表单变化
+- 默认值处理：使用 `||` 运算符提供默认值
+- 响应式更新：计算结果实时更新显示
 
 ---
 
@@ -254,10 +254,10 @@ const results = calculateCalories({
 />
 ```
 
-**学习要点：**
-- **组件组合**：Card 由 Header、Content 等子组件组成
-- **变体支持**：Button 支持 `variant="outline"` 等变体
-- **样式类名**：使用 `className` 自定义样式
+学习要点：
+- 组件组合：Card 由 Header、Content 等子组件组成
+- 变体支持：Button 支持 `variant="outline"` 等变体
+- 样式类名：使用 `className` 自定义样式
 
 ---
 
@@ -300,11 +300,11 @@ const calculateCalories = (data) => {
 };
 ```
 
-**学习要点：**
-- **算法实现**：使用标准的 BMR 计算公式
-- **条件判断**：根据性别使用不同公式
-- **数据映射**：使用对象映射活动水平系数
-- **数值处理**：使用 `Math.round()` 四舍五入
+学习要点：
+- 算法实现：使用标准的 BMR 计算公式
+- 条件判断：根据性别使用不同公式
+- 数据映射：使用对象映射活动水平系数
+- 数值处理：使用 `Math.round()` 四舍五入
 
 ---
 
@@ -343,22 +343,22 @@ const calculateCalories = (data) => {
 
 ## 🚀 扩展学习建议
 
-1. **深入学习 React Hook Form**
+1. 深入学习 React Hook Form
    - 自定义验证规则
    - 表单数组处理
    - 异步验证
 
-2. **探索更多 shadcn/ui 组件**
+2. 探索更多 shadcn/ui 组件
    - 数据表格
    - 模态框
    - 通知系统
 
-3. **添加更多功能**
+3. 添加更多功能
    - 数据持久化
    - 用户偏好设置
    - 历史记录功能
 
-4. **性能优化**
+4. 性能优化
    - 组件懒加载
    - 虚拟滚动
    - 缓存策略

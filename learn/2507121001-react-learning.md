@@ -35,10 +35,10 @@ nocode-fit/
 ```
 
 ### 启动流程分析
-1. **index.html** → 定义根元素 `<div id="root">`
-2. **main.jsx** → React 应用挂载点
-3. **App.jsx** → 根组件，配置全局布局
-4. **页面组件** → 具体业务逻辑实现
+1. index.html → 定义根元素 `<div id="root">`
+2. main.jsx → React 应用挂载点
+3. App.jsx → 根组件，配置全局布局
+4. 页面组件 → 具体业务逻辑实现
 
 ---
 
@@ -771,12 +771,12 @@ export default UserCard;
 - [React Router 文档](https://reactrouter.com/)
 
 ### 推荐工具
-- **开发工具**: React Developer Tools
-- **代码格式化**: Prettier
-- **代码检查**: ESLint
-- **类型检查**: TypeScript
-- **状态管理**: Redux Toolkit, Zustand
-- **UI 组件库**: Ant Design, Material-UI, Chakra UI
+- 开发工具: React Developer Tools
+- 代码格式化: Prettier
+- 代码检查: ESLint
+- 类型检查: TypeScript
+- 状态管理: Redux Toolkit, Zustand
+- UI 组件库: Ant Design, Material-UI, Chakra UI
 
 ### 进阶主题
 - React 18 新特性
@@ -792,11 +792,11 @@ export default UserCard;
 
 React 是一个强大的前端框架，掌握以下核心概念是关键：
 
-1. **组件化思维** - 将 UI 拆分为独立、可复用的组件
-2. **声明式编程** - 描述 UI 应该是什么样子，而不是如何操作 DOM
-3. **单向数据流** - 数据从父组件流向子组件
-4. **状态管理** - 合理使用 useState、useReducer 等 Hook
-5. **性能优化** - 使用 memo、useCallback、useMemo 等优化技巧
+1. 组件化思维 - 将 UI 拆分为独立、可复用的组件
+2. 声明式编程 - 描述 UI 应该是什么样子，而不是如何操作 DOM
+3. 单向数据流 - 数据从父组件流向子组件
+4. 状态管理 - 合理使用 useState、useReducer 等 Hook
+5. 性能优化 - 使用 memo、useCallback、useMemo 等优化技巧
 
 通过不断练习和实践，你将能够构建出高效、可维护的 React 应用！
 
