@@ -1,3 +1,6 @@
+// 学习笔记: 这是首页，也是主要的业务页面。
+// 这里包含了表单、计算逻辑和结果展示，是项目的核心功能实现。
+
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +21,13 @@ const Index = () => {
 
   const calculateCalories = (data) => {
     const { age, gender, height, weight, activityLevel } = data;
+    if (!age || !gender || !height || !weight || !activityLevel) {
+      return {
+        bmr: 0,
+        tdee: 0,
+        fatLossCalories: 0
+      };
+    }
     
     // 计算基础代谢率(BMR)
     let bmr;
@@ -67,12 +77,12 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-2xl mx-auto">
+    <div className="p-8 min-h-screen bg-gray-100">
+      <div className="mx-auto max-w-2xl">
         <Card>
           <CardHeader>
-            <div className="flex items-center gap-3">
-              <Calculator className="h-6 w-6 text-primary" />
+            <div className="flex gap-3 items-center">
+              <Calculator className="w-6 h-6 text-primary" />
               <div>
                 <CardTitle>饮食热量计算器</CardTitle>
                 <CardDescription>输入您的身体数据计算每日热量需求</CardDescription>
@@ -83,8 +93,8 @@ const Index = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="age" className="flex items-center gap-2">
-                    <User className="h-4 w-4" />
+                  <Label htmlFor="age" className="flex gap-2 items-center">
+                    <User className="w-4 h-4" />
                     年龄
                   </Label>
                   <Input
@@ -105,8 +115,8 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="gender" className="flex items-center gap-2">
-                    <User className="h-4 w-4" />
+                  <Label htmlFor="gender" className="flex gap-2 items-center">
+                    <User className="w-4 h-4" />
                     性别
                   </Label>
                   <Select 
@@ -125,8 +135,8 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="height" className="flex items-center gap-2">
-                    <Ruler className="h-4 w-4" />
+                  <Label htmlFor="height" className="flex gap-2 items-center">
+                    <Ruler className="w-4 h-4" />
                     身高 (厘米)
                   </Label>
                   <Input
@@ -147,8 +157,8 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="weight" className="flex items-center gap-2">
-                    <Scale className="h-4 w-4" />
+                  <Label htmlFor="weight" className="flex gap-2 items-center">
+                    <Scale className="w-4 h-4" />
                     体重 (公斤)
                   </Label>
                   <Input
@@ -169,8 +179,8 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="activityLevel" className="flex items-center gap-2">
-                    <Activity className="h-4 w-4" />
+                  <Label htmlFor="activityLevel" className="flex gap-2 items-center">
+                    <Activity className="w-4 h-4" />
                     活动水平
                   </Label>
                   <Select 
@@ -192,28 +202,28 @@ const Index = () => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 pt-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="flex items-center gap-2 text-blue-600">
-                      <Flame className="h-4 w-4" />
+                  <div className="p-4 bg-blue-50 rounded-lg">
+                    <div className="flex gap-2 items-center text-blue-600">
+                      <Flame className="w-4 h-4" />
                       <span className="font-medium">基础代谢</span>
                     </div>
-                    <div className="text-2xl font-bold mt-2">{results.bmr} 卡路里</div>
+                    <div className="mt-2 text-2xl font-bold">{results.bmr} 卡路里</div>
                   </div>
 
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="flex items-center gap-2 text-green-600">
-                      <Flame className="h-4 w-4" />
+                  <div className="p-4 bg-green-50 rounded-lg">
+                    <div className="flex gap-2 items-center text-green-600">
+                      <Flame className="w-4 h-4" />
                       <span className="font-medium">每日消耗</span>
                     </div>
-                    <div className="text-2xl font-bold mt-2">{results.tdee} 卡路里</div>
+                    <div className="mt-2 text-2xl font-bold">{results.tdee} 卡路里</div>
                   </div>
 
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="flex items-center gap-2 text-purple-600">
-                      <Flame className="h-4 w-4" />
+                  <div className="p-4 bg-purple-50 rounded-lg">
+                    <div className="flex gap-2 items-center text-purple-600">
+                      <Flame className="w-4 h-4" />
                       <span className="font-medium">减脂摄入</span>
                     </div>
-                    <div className="text-2xl font-bold mt-2">{results.fatLossCalories} 卡路里</div>
+                    <div className="mt-2 text-2xl font-bold">{results.fatLossCalories} 卡路里</div>
                   </div>
                 </div>
               </div>
@@ -234,14 +244,6 @@ const Index = () => {
             </form>
           </CardContent>
         </Card>
-
-        <div className="mt-8">
-          <img 
-            src="https://nocode.meituan.com/photo/search?keyword=fitness,nutrition&width=800&height=400" 
-            alt="健康饮食" 
-            className="rounded-lg w-full h-auto object-cover shadow-md"
-          />
-        </div>
       </div>
     </div>
   );
