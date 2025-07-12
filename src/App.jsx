@@ -7,7 +7,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
 
 const queryClient = new QueryClient();
@@ -20,13 +20,13 @@ const App = () => (
       {/* 消息通知组件 */}
       <Toaster />
       {/* 路由配置 */}
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           {navItems.map(({ to, page }) => (
             <Route key={to} path={to} element={page} />
           ))}
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
